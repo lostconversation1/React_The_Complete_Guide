@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import UserInput from './UserInput/UserInput';
-import UserOutput from './UserOutput/UserOutput';
+
 
 class App extends Component {
   state = {
@@ -11,10 +10,7 @@ class App extends Component {
       { name: 'test', age: 40 },
       { name: 'maggie', age: 18 }
     ],
-    otherStatae: "rdgdgdgdgzhsh",
-    user: {
-      username: "test svsfsfs"
-    }
+    otherStatae: "rdgdgdgdgzhsh"
   }
 
   switchNameHandler = (newName) => {
@@ -37,13 +33,7 @@ class App extends Component {
       ]
     })
   }
-  usernameChangeHandler = (event) => {
-    this.setState({
-      user: {
-        username: event.target.value
-      }
-    })
-  }
+
   render() {
     const style = {
       backgoundColour: 'white',
@@ -70,10 +60,6 @@ class App extends Component {
         <Person
           name={this.state.persons[2].name}
           age={this.state.persons[2].age}> my hobiess dancing</Person>
-        <UserInput 
-        changed={this.usernameChangeHandler}
-        currentName={this.state.user.username} />
-        <UserOutput username={this.state.user.username} />
       </div>
     );
   }
