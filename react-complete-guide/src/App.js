@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 import styled from 'styled-components';
 import Person from './Person/Person';
 
@@ -108,9 +108,8 @@ class App extends Component {
       <div className="App">
         <h1>hI I AM APP</h1>
         <p className={classes.join(' ')}>this working</p>
-        <StyledButton
-          alt={this.state.showPersons}
-          onClick={this.tooglePersonsHandler}>Switch Name</StyledButton>
+        <button className={classes.Button}
+          onClick={this.tooglePersonsHandler}>Switch Name</button>
         {persons}
       </div>
     );
