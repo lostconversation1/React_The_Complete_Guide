@@ -11,7 +11,7 @@ background-color: ${props => props.alt ? 'red' : 'green'};
       padding: 8px ;
       cursor: pointer ;
        &:hover : {
-        backgroundColor:  lightgreen  ;
+        backgroundColor: ${props => props.alt ? 'salmon':'lightgreen'}  ;
         color:  black 
       }`;
 
