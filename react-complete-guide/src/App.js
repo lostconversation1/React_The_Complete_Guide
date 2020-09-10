@@ -1,19 +1,6 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import styled from 'styled-components';
 import Person from './Person/Person';
-
-const StyledButton = styled.button`
-background-color: ${props => props.alt ? 'red' : 'green'};
-      color: white;
-      font: inherit;
-      border: 1px solid blue ;
-      padding: 8px ;
-      cursor: pointer ;
-       &:hover : {
-        backgroundColor: ${props => props.alt ? 'salmon':'lightgreen'}  ;
-        color:  black 
-      }`;
 
 class App extends Component {
   state = {
@@ -68,7 +55,7 @@ class App extends Component {
 
 
     let persons = null;
-
+    let btnClass = [classes.Button];
     if (this.state.showPersons) {
       persons = <div>
         {this.state.persons.map((person, index) => {
@@ -79,36 +66,22 @@ class App extends Component {
             key={person.id}
             changed={(event) => this.nameChangedHandler(event, person.id)} />
         })}
-        {/* <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age} />
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-          click={this.switchNameHandler.bind(this, 'Max!')}
-          changed={this.nameChangedHandler} />
-        <Person
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}> my hobiess dancing</Person> */}
+   
       </div>
-      // style.backgroundColor = 'red';
-      // style[':hover'] = {
-      //   backgroundColor: 'salmon',
-      //   color: 'black'
-      // }
+     btnClass.push(classes.Red);
     };
-    let classes = [];
+    let assignedClasses = [];
     if (this.state.persons.length <= 2) {
-      classes.push('red');
+      assignedClasses.push(classes.red);
     }
     if (this.state.persons.length <= 1) {
-      classes.push('bold');
+      assignedClasses.push(classes.bold);
     }
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h1>hI I AM APP</h1>
-        <p className={classes.join(' ')}>this working</p>
-        <button className={classes.Button}
+        <p className={assignedClasses.join(' ')}>this working</p>
+        <button className={btnClass.join(' ')}
           onClick={this.tooglePersonsHandler}>Switch Name</button>
         {persons}
       </div>
